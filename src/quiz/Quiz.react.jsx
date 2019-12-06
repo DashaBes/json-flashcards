@@ -33,6 +33,7 @@ const Quiz = ({data}) => {
           </VerticalLayout>
         </VerticalLayout>
       </Card>
+      <Text type="body2">{`Card 1 of ${data.length}`}</Text>
     </>
   );
 };
