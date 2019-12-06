@@ -28,7 +28,7 @@ const Button = ({id, onChange, type, value}) => {
       </label>
     </>
   ) : (
-    <input type={buttonType} label={value} onChange={onChange} />
+    <input type={buttonType} className={type === 'link' ? classes.Link : classes.Button} value={value} onChange={onChange} />
   );
 };
 
