@@ -30,9 +30,9 @@ const textProps = {
     tag: 'p',
   },
 };
-const Text = ({type, children}) => {
+const Text = ({type, align, children}) => {
   const textType = textProps[type] ? textProps[type] : textProps.default;
-  return <textType.tag className={classes[textType.className]}>{children}</textType.tag>;
+  return <textType.tag style={{textAlign: align}} className={classes[textType.className]}>{children}</textType.tag>;
 };
 
 export default Text;

@@ -1,0 +1,19 @@
+.VerticalLayout {
+  flex-flow: row nowrap;
+  display: flex;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.vcenter {
+  align-items: center;
+}
+
+.hcenter {
+  justify-content: center;
+}
+
+.middle {
+  align-items: center;
+  justify-content: center;
+}
