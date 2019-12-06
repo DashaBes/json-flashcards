@@ -1,9 +1,12 @@
-import React from "react";
+import React from 'react';
 import Landing from './landing/Landing';
+import FullPageLayout from './components/core/FullPageLayout.react';
 
 function App() {
   return (
-    <Landing />
+    <FullPageLayout>
+      <Landing />
+    </FullPageLayout>
   );
 }
 
