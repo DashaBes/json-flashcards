@@ -1,6 +1,6 @@
 import React from 'react';
 import Landing from './landing/Landing';
-import FullPageLayout from './components/core/FullPageLayout.react';
+import FullPageLayout from './components/core/layout/FullPageLayout.react';
 
 function App() {
   return (
