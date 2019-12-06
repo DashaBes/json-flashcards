@@ -64,7 +64,7 @@ const Landing = () => {
                 ></Button>
               </VerticalLayout>
             ) : (
-              <Spinner />
+              <Spinner text="Loading your cards..."/>
             )}
           </DragAndDropCard>
         </>
