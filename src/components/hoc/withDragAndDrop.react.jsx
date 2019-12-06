@@ -21,7 +21,8 @@ const withDragAndDrop = (WrappedComponent, dropAction) => {
 
     const wrappedDropAction = e => {
       e.preventDefault();
-      dropAction();
+      setStyle({});
+      dropAction(e);
     };
 
     return (
