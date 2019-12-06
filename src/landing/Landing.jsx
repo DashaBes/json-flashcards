@@ -64,9 +64,12 @@ const Landing = () => {
                 ></Button>
               </VerticalLayout>
             ) : (
-              <Spinner text="Loading your cards..."/>
+              <Spinner text="Loading your cards..." />
             )}
           </DragAndDropCard>
+          <Text type="body1">
+            <Button type="link" value="How do I format my .json?" />
+          </Text>
         </>
       ) : (
         <Quiz data={quizData} />
