@@ -1,9 +1,10 @@
 .header1 {
-  margin: 0;
+  font-weight: 300;
+  font-size: 5rem;
 }
 
 .header2 {
-  margin: 0;
+  font-weight: 400;
 }
 
 .header3 {
@@ -11,7 +12,7 @@
 }
 
 .body1 {
-
+  font-size: 1.25rem;
 }
 
 .body2 {

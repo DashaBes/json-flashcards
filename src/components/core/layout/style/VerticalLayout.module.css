@@ -5,6 +5,18 @@
   height: 100%;
 }
 
+.VerticalLayout > * {
+  margin: 0.5rem 0;
+}
+
+.VerticalLayout:first-child {
+  margin-top: 0;
+}
+
+.VerticalLayout:last-child {
+  margin-bottom: 0;
+}
+
 .vcenter {
   justify-content: center;
 }
