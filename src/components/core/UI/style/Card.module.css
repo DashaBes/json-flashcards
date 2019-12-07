@@ -2,6 +2,9 @@
   border: 2px solid #000;
   width: 40rem;
   height: 25rem;
-  margin: 5rem 0;
   padding: 1em 2.5em;
+}
+
+.rounded {
+  border-radius: 2rem;
 }

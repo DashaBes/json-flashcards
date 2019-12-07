@@ -40,6 +40,7 @@ const Landing = () => {
   };
 
   const DragAndDropCard = useMemo(() => withDragAndDrop(Card, handleDrop), []);
+  const quizEndHandler = () => setQuizData(null);
 
   return (
     <VerticalLayout center="middle">
@@ -72,7 +73,7 @@ const Landing = () => {
           </Text>
         </>
       ) : (
-        <Quiz data={quizData} />
+        <Quiz data={quizData} finishQuiz={quizEndHandler}/>
       )}
     </VerticalLayout>
   );

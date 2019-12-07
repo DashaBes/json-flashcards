@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './style/Card.module.css';
 
-const Card = ({children, onDragOver, onDrop, onDragLeave, style}) => {
+const Card = ({children, onDragOver, onDrop, onDragLeave, style, rounded}) => {
   return (
     <div
-      className={classes.Card}
+      className={[classes.Card, rounded && classes.rounded].join(' ')}
       style={style}
       onDragOver={onDragOver}
       onDrop={onDrop}

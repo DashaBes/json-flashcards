@@ -1,7 +1,16 @@
 import React from 'react';
 import classes from './style/Button.module.css';
 
-const Button = ({id, onChange, type, value}) => {
+const Button = ({
+  id,
+  style,
+  onChange,
+  type,
+  value,
+  disabled,
+  hidden,
+  onClick,
+}) => {
   let buttonType;
   switch (type) {
     case 'file':
@@ -13,7 +22,16 @@ const Button = ({id, onChange, type, value}) => {
     default:
       buttonType = 'button';
   }
-
+  let classList = [];
+  if (type === 'link') {
+    classList.push(classes.Link);
+  } else {
+    classList.push(classes.Button);
+  }
+  if (hidden) {
+    classList.push(classes.invisible);
+  }
+  const styles = classList.join(' ');
   return buttonType === 'file' ? (
     <>
       <input
@@ -22,13 +40,21 @@ const Button = ({id, onChange, type, value}) => {
         className={classes.hidden}
         accept={'.json'}
         onChange={onChange}
+        disabled={disabled}
       />
-      <label className={classes.Button} htmlFor={id}>
+      <label style={style} className={styles} htmlFor={id} onClick={onClick}>
         Upload
       </label>
     </>
   ) : (
-    <input type={buttonType} className={type === 'link' ? classes.Link : classes.Button} value={value} onChange={onChange} />
+    <input
+      style={style}
+      type={buttonType}
+      className={styles}
+      value={value}
+      disabled={disabled}
+      onClick={onClick}
+    />
   );
 };
 

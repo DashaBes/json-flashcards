@@ -10,13 +10,11 @@ const withDragAndDrop = (WrappedComponent, dropAction) => {
         borderWidth: '3px',
         borderStyle: 'dashed',
       });
-      console.log('Dragging');
     };
 
     const dragLeaveHandler = e => {
       e.preventDefault();
       setStyle({});
-      console.log('Dragging');
     };
 
     const wrappedDropAction = e => {

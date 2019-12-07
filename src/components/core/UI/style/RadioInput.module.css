@@ -1,0 +1,11 @@
+.RadioInput {
+  cursor: pointer;
+}
+
+.RadioInput:hover {
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
