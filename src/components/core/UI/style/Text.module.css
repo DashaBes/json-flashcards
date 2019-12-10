@@ -4,11 +4,12 @@
 }
 
 .header2 {
+  font-size: 1.75rem;
   font-weight: 400;
 }
 
 .header3 {
-  
+  font-size: 1.25rem;
 }
 
 .body1 {
@@ -21,4 +22,8 @@
 
 .body3 {
 
+}
+
+.bold {
+  font-weight: 600;
 }

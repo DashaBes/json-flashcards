@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Card from '../components/core/UI/Card.react';
 import Text from '../components/core/UI/Text.react';
 import VerticalLayout from '../components/core/layout/VerticalLayout.react';
-import RadioInputList from '../components/core/UI/RadioInputList.react';
+import QuestionList from '../components/core/UI/QuestionList.react';
 import Button from '../components/core/UI/Button.react';
+import {getStringHash} from '../service/util/util';
 
 const Quiz = ({data, finishQuiz}) => {
   const [answer, setAnswer] = useState(null);
@@ -11,58 +12,53 @@ const Quiz = ({data, finishQuiz}) => {
 
   const {question, options, correct} = data[questionIndex];
 
-  const answerHandler = userAnswer => {
-    if (parseInt(userAnswer) === correct) {
-      console.log('Correct');
+  const answerHandler = correct => {
+    if (correct) {
+      // Correct answer logic
     } else {
-      console.log('Incorrect');
+      // Incorrect answer logic
     }
   };
-
-  useEffect(() => {
-    setAnswer(null);
-  }, [questionIndex]);
 
   return (
     <>
       <Text type="header1">Quiz</Text>
       <Card rounded>
-        <VerticalLayout
-          style={{justifyContent: 'space-between'}}
-          center="horizontal"
-        >
-          <Text type="header2">{question}</Text>
+        <VerticalLayout>
+          <Text type="header2" bold>{question}</Text>
           <VerticalLayout style={{height: 'auto '}}>
-            <RadioInputList
-              groupName={question.replace(/\s+/g, '')}
-              options={options}
-              disabled={answer ? true : false}
-              onSelect={e => {
-                const userAnswer = e.target.value;
-                setAnswer(userAnswer);
-                answerHandler(userAnswer);
+            <QuestionList
+              questionId={`question_${getStringHash(question)}`}
+              questions={options}
+              correct={correct}
+              shuffle={true}
+              showFeedback={answer ? true : false}
+              onAnswer={(option, isCorrect) => {
+                setAnswer(option);
+                answerHandler(isCorrect);
               }}
             />
           </VerticalLayout>
-          {questionIndex + 1 !== data.length ? (
-            <Button
-              hidden={!answer ? true : false}
-              value="Next"
-              onClick={() => {
-                setQuestionIndex(i => i + 1);
-              }}
-            />
-          ) : (
-            <Button
-              hidden={!answer ? true : false}
-              value="Finish"
-              onClick={() => {
-                finishQuiz();
-              }}
-            ></Button>
-          )}
         </VerticalLayout>
       </Card>
+      {questionIndex + 1 !== data.length ? (
+        <Button
+          hidden={!answer ? true : false}
+          value="Next"
+          onClick={() => {
+            setQuestionIndex(i => i + 1);
+            setAnswer(null);
+          }}
+        />
+      ) : (
+        <Button
+          hidden={!answer ? true : false}
+          value="Finish"
+          onClick={() => {
+            finishQuiz();
+          }}
+        ></Button>
+      )}
       <Text type="body2">{`Card ${questionIndex + 1} of ${data.length}`}</Text>
     </>
   );

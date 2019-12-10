@@ -6,6 +6,7 @@ import withDragAndDrop from '../components/hoc/withDragAndDrop.react';
 import Button from '../components/core/UI/Button.react';
 import Quiz from '../quiz/Quiz.react';
 import Spinner from '../components/core/UI/Spinner.react';
+import {randomizeArray} from '../service/util/util';
 
 const Landing = () => {
   const [isLoading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ const Landing = () => {
         const fileContents = await file.getAsFile().text();
         const fileData = JSON.parse(fileContents);
         // Error handling should go here
-        setQuizData(fileData);
+        setQuizData(randomizeArray(fileData));
       }
       setLoading(false);
     }
@@ -38,7 +39,6 @@ const Landing = () => {
       setLoading(false);
     }
   };
-
   const DragAndDropCard = useMemo(() => withDragAndDrop(Card, handleDrop), []);
   const quizEndHandler = () => setQuizData(null);
 
@@ -47,7 +47,7 @@ const Landing = () => {
       {!quizData ? (
         <>
           <Text type="header1">JSON Flashcards</Text>
-          <Text type="header2">
+          <Text type="body1">
             Create flashcards quickly from a formatted .json file.
           </Text>
           <DragAndDropCard enabled={!isLoading}>
@@ -56,7 +56,7 @@ const Landing = () => {
                 <Text type="header2" align="center">
                   Drag and drop your .json file here
                 </Text>
-                <Text type="header2">or</Text>
+                <Text type="body1">or</Text>
                 <Button
                   id="fileUpload"
                   type="file"
@@ -73,7 +73,9 @@ const Landing = () => {
           </Text>
         </>
       ) : (
-        <Quiz data={quizData} finishQuiz={quizEndHandler}/>
+        <>
+          {!isLoading && <Quiz data={quizData} finishQuiz={quizEndHandler} />}
+        </>
       )}
     </VerticalLayout>
   );
