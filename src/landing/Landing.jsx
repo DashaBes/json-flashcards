@@ -36,7 +36,7 @@ const Landing = () => {
         const fileContents = await file.text();
         const fileData = JSON.parse(fileContents);
         // Error handling should go here
-        setQuizData(fileData);
+        setQuizData(randomizeArray(fileData));
       }
       setLoading(false);
     }
@@ -55,12 +55,12 @@ const Landing = () => {
           <DragAndDropCard enabled={!isLoading}>
             {!isLoading ? (
               <VerticalLayout center="middle">
-                <Text type="header2" align="center">
-                  <div className={classes.drag_drop_wrapper}>
-                    <Icon size="3rem" type="drag" />
+                <div className={classes.drag_drop_wrapper}>
+                  <Icon size="3rem" type="drag" />
+                  <Text type="header2" align="center">
                     Drag and drop your .json file here
-                  </div>
-                </Text>
+                  </Text>
+                </div>
                 <Text type="body1">or</Text>
                 <Button
                   id="fileUpload"
@@ -73,12 +73,12 @@ const Landing = () => {
               <Spinner text="Loading your cards..." />
             )}
           </DragAndDropCard>
-          <Text type="body1">
-            <div className={classes.help_wrapper}>
-              <Icon size="1.5rem" type="help" />
+          <div className={classes.help_wrapper}>
+            <Icon size="1.5rem" type="help" />
+            <Text type="body1">
               <Button type="link" value="How do I format my .json?" />
-            </div>
-          </Text>
+            </Text>
+          </div>
         </VerticalLayout>
       ) : (
         <>
