@@ -1,9 +1,4 @@
-.help_wrapper {
+.icon_wrapper {
   display: flex;
   align-items: center;
-}
-
-.drag_drop_wrapper {
-  display: flex;
-  align-items: baseline;
 }

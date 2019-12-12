@@ -55,7 +55,7 @@ const Landing = () => {
           <DragAndDropCard enabled={!isLoading}>
             {!isLoading ? (
               <VerticalLayout center="middle">
-                <div className={classes.drag_drop_wrapper}>
+                <div className={classes.icon_wrapper}>
                   <Icon size="3rem" type="drag" />
                   <Text type="header2" align="center">
                     Drag and drop your .json file here
@@ -73,7 +73,7 @@ const Landing = () => {
               <Spinner text="Loading your cards..." />
             )}
           </DragAndDropCard>
-          <div className={classes.help_wrapper}>
+          <div className={classes.icon_wrapper}>
             <Icon size="1.5rem" type="help" />
             <Text type="body1">
               <Button type="link" value="How do I format my .json?" />
