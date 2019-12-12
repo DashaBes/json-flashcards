@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Children} from 'react';
 import classes from './style/VerticalLayout.module.css';
 
 const centerClasses = {
@@ -13,7 +13,13 @@ const VerticalLayout = ({center, children, style}) => {
     classList.push(centerClasses[center]);
   }
 
-  return <div style={style} className={classList.join(' ')}>{children}</div>;
+  return (
+    <div style={style} className={classList.join(' ')}>
+      {Children.map(children, child => {
+        return <div className={classes.child}>{child}</div>;
+      })}
+    </div>
+  );
 };
 
 export default VerticalLayout;

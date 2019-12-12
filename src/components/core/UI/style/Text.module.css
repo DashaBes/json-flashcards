@@ -1,15 +1,28 @@
-.header1 {
+.title {
   font-weight: 300;
   font-size: 5rem;
+  margin: 0;
+}
+
+.header1 {
+  font-weight: 400;
+  font-size: 3rem;
+  margin: 0;
 }
 
 .header2 {
   font-size: 1.75rem;
   font-weight: 400;
+  margin: 0;
 }
 
 .header3 {
   font-size: 1.25rem;
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }
 
 .body1 {

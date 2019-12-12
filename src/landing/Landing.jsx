@@ -43,10 +43,10 @@ const Landing = () => {
   const quizEndHandler = () => setQuizData(null);
 
   return (
-    <VerticalLayout center="middle">
+    <>
       {!quizData ? (
-        <>
-          <Text type="header1">JSON Flashcards</Text>
+        <VerticalLayout center="middle">
+          <Text type="title">JSON Flashcards</Text>
           <Text type="body1">
             Create flashcards quickly from a formatted .json file.
           </Text>
@@ -71,13 +71,13 @@ const Landing = () => {
           <Text type="body1">
             <Button type="link" value="How do I format my .json?" />
           </Text>
-        </>
+        </VerticalLayout>
       ) : (
         <>
           {!isLoading && <Quiz data={quizData} finishQuiz={quizEndHandler} />}
         </>
       )}
-    </VerticalLayout>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, {useMemo} from 'react';
 import Question from './Question.react';
-import {randomizeArray, getStringHash} from '../../../service/util/util';
+import {randomizeArray, getStringHash} from '../../service/util/util';
+import VerticalLayout from '../../components/core/layout/VerticalLayout.react';
 
 const QuestionList = ({
   questionId,
@@ -33,7 +34,7 @@ const QuestionList = ({
       />
     );
   });
-  return questionsComponents;
+  return <VerticalLayout>{questionsComponents}</VerticalLayout>;
 };
 
 export default QuestionList;

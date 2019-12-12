@@ -8,7 +8,7 @@ const centerClasses = {
 };
 
 const HorizontalLayout = ({center, children}) => {
-  const classList = [classes.VerticalLayout];
+  const classList = [classes.HorizontalLayout];
   if (center) {
     classList.push(centerClasses[center]);
   }

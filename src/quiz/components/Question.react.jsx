@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import classes from './style/Question.module.css';
-import {getLetterFromId} from '../../../service/util/util';
+import {getLetterFromId} from '../../service/util/util';
 
 const Question = ({
   index,

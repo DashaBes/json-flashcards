@@ -1,0 +1,12 @@
+.Quiz {
+  background-image: url('../assets/quiz-bg.png');
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+}
+
+.title {
+  padding: 0.75em 0;
+  color: #8F2357;
+}

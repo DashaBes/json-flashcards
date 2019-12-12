@@ -1,4 +1,5 @@
 .Card {
+  background-color: #fff;
   border: 2px solid #000;
   width: 40rem;
   height: 25rem;
@@ -6,5 +7,7 @@
 }
 
 .rounded {
-  border-radius: 2rem;
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 2.5px 5px 15px rgba(0, 0, 0, 0.25);
 }
