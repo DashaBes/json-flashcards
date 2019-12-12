@@ -7,6 +7,8 @@ import Button from '../components/core/UI/Button.react';
 import Quiz from '../quiz/Quiz.react';
 import Spinner from '../components/core/UI/Spinner.react';
 import {randomizeArray} from '../service/util/util';
+import Icon from '../components/core/UI/Icon.react';
+import classes from './Landing.module.css';
 
 const Landing = () => {
   const [isLoading, setLoading] = useState(false);
@@ -54,7 +56,10 @@ const Landing = () => {
             {!isLoading ? (
               <VerticalLayout center="middle">
                 <Text type="header2" align="center">
-                  Drag and drop your .json file here
+                  <div className={classes.drag_drop_wrapper}>
+                    <Icon size="3rem" type="drag" />
+                    Drag and drop your .json file here
+                  </div>
                 </Text>
                 <Text type="body1">or</Text>
                 <Button
@@ -69,7 +74,10 @@ const Landing = () => {
             )}
           </DragAndDropCard>
           <Text type="body1">
-            <Button type="link" value="How do I format my .json?" />
+            <div className={classes.help_wrapper}>
+              <Icon size="1.5rem" type="help" />
+              <Button type="link" value="How do I format my .json?" />
+            </div>
           </Text>
         </VerticalLayout>
       ) : (

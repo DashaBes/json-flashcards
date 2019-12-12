@@ -3,7 +3,18 @@
   display: flex;
   margin: 0;
   height: 100%;
-  justify-content: space-between;
+}
+
+.HorizontalLayout > .child {
+  padding: 0 0.75em;
+}
+
+.HorizontalLayout > .child:first-of-type {
+  padding-left: 0;
+}
+
+.HorizontalLayout > .child:last-of-type {
+  padding-right: 0;
 }
 
 .vcenter {

@@ -1,22 +1,22 @@
+.QuestionContainer {
+  display: flex;
+}
+
 .Question {
   cursor: pointer;
   font-weight: 400;
   font-size: 1.25rem;
 }
 
-.Question:not(.disabled):hover {
+.disabled {
+  cursor: default;
+}
+
+.Question:not(.disabled):hover,
+.selected {
   font-weight: 600;
 }
 
-.Question.correct {
-  color: green;
-  font-weight: 600;
-}
-
-.Question.incorrect {
-  color: red;
-  font-weight: 600;
-}
 
 .hidden {
   display: none;

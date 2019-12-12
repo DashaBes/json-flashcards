@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import classes from './style/Question.module.css';
 import {getLetterFromId} from '../../service/util/util';
+import Icon from '../../components/core/UI/Icon.react';
 
 const Question = ({
   index,
@@ -14,21 +15,23 @@ const Question = ({
   const [selected, setSelected] = useState(false);
   const styles = [classes.Question];
   const isCorrect = index === correct;
+  let iconType;
 
   if (selected) {
-    const feedbackStyle = isCorrect ? classes.correct : classes.incorrect;
-    styles.push(feedbackStyle);
+    iconType = isCorrect ? 'correct' : 'incorrect';
+    styles.push(classes.selected);
   }
 
   if (showFeedback) {
     styles.push(classes.disabled);
     if (isCorrect) {
-      styles.push(classes.correct);
+      iconType = 'correct';
     }
   }
 
+
   return (
-    <>
+    <div className={classes.QuestionContainer}>
       <input
         id={id}
         className={classes.hidden}
@@ -41,10 +44,11 @@ const Question = ({
         value={option}
         disabled={showFeedback}
       />
+      <Icon size='1.5rem' type={iconType} />
       <label className={styles.join(' ')} htmlFor={id}>
         {`${getLetterFromId(index)}) ${option}`}
       </label>
-    </>
+    </div>
   );
 };
 

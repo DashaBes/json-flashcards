@@ -7,7 +7,6 @@ import Button from '../components/core/UI/Button.react';
 import {getStringHash} from '../service/util/util';
 import Header from '../components/core/UI/Header.react';
 import Sidebar from '../components/core/UI/Sidebar.react';
-import HorizontalLayout from '../components/core/layout/HorizontalLayout.react';
 import classes from './Quiz.module.css';
 import Timer from '../components/core/UI/Timer.react';
 import ProgressRing from './components/QuizProgress.react';
@@ -33,7 +32,7 @@ const Quiz = ({data, finishQuiz}) => {
   return (
     <div className={classes.Quiz}>
       <Header text="Quiz" />
-      <HorizontalLayout>
+      <div className={classes.QuizPanel}>
         <Sidebar>
           <Text type="header2" bold>
             Stats
@@ -80,7 +79,7 @@ const Quiz = ({data, finishQuiz}) => {
             ></Button>
           )}
         </VerticalLayout>
-      </HorizontalLayout>
+      </div>
     </div>
   );
 };

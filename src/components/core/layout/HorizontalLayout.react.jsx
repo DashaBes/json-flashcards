@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Children} from 'react';
 import classes from './style/HorizontalLayout.module.css';
 
 const centerClasses = {
@@ -13,7 +13,13 @@ const HorizontalLayout = ({center, children}) => {
     classList.push(centerClasses[center]);
   }
 
-  return <div className={classList.join(' ')}>{children}</div>;
+  return (
+    <div className={classList.join(' ')}>
+      {Children.map(children, child => {
+        return <div className={classes.child}>{child}</div>;
+      })}
+    </div>
+  );
 };
 
 export default HorizontalLayout;
