@@ -10,6 +10,7 @@ const Button = ({
   disabled,
   hidden,
   onClick,
+  className
 }) => {
   let buttonType;
   switch (type) {
@@ -22,7 +23,7 @@ const Button = ({
     default:
       buttonType = 'button';
   }
-  let classList = [];
+  let classList = [className];
   if (type === 'link') {
     classList.push(classes.Link);
   } else {

@@ -1,22 +1,32 @@
 import React, {useState, useEffect} from 'react';
 import Text from './Text.react';
-import classes from './style/Timer.module.css'
+import classes from './style/Timer.module.css';
 
-const Timer = () => {
+const Timer = ({stop}) => {
   const [currentSeconds, setCurrentSeconds] = useState(null);
+
   useEffect(() => {
     setCurrentSeconds(0);
-    const updateTime = setInterval(() => {
-      setCurrentSeconds(prevTime => prevTime + 1);
-    }, 1000);
-    return () => {
-      clearInterval(updateTime);
-    };
   }, []);
+
+  useEffect(() => {
+    if (!stop) {
+      const updateTime = setInterval(() => {
+        setCurrentSeconds(prevTime => prevTime + 1);
+      }, 1000);
+      return () => {
+        clearInterval(updateTime);
+      };
+    }
+  }, [stop]);
   return (
     <>
-      <Text type="header1" className={classes.Timer} align="center" bold>{secondsToFormattedTime(currentSeconds)}</Text>
-      <Text type="body1" align="center">Time elapsed</Text>
+      <Text type="header1" className={classes.Timer} align="center" bold>
+        {secondsToFormattedTime(currentSeconds)}
+      </Text>
+      <Text type="body1" align="center">
+        Time elapsed
+      </Text>
     </>
   );
 };
