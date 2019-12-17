@@ -56,7 +56,7 @@ const Landing = () => {
             {!isLoading ? (
               <VerticalLayout center="middle">
                 <div className={classes.icon_wrapper}>
-                  <Icon size="3rem" type="drag" />
+                  <Icon size={3} type="drag" />
                   <Text type="header2" align="center">
                     Drag and drop your .json file here
                   </Text>
@@ -67,7 +67,6 @@ const Landing = () => {
                   type="file"
                   value="Upload"
                   onChange={handleUpload}
-                  style={{marginTop: '12px'}}
                 ></Button>
               </VerticalLayout>
             ) : (
@@ -75,7 +74,7 @@ const Landing = () => {
             )}
           </DragAndDropCard>
           <div className={classes.icon_wrapper}>
-            <Icon size="1.5rem" type="help" />
+            <Icon size={1.5} type="help" />
             <Text type="body1">
               <Button style={{color:'black'}}type="link" value="How do I format my .json?" />
             </Text>

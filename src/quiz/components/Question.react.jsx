@@ -44,7 +44,7 @@ const Question = ({
         value={option}
         disabled={showFeedback}
       />
-      <Icon size='1.5rem' type={iconType} />
+      <Icon size={1.5} type={iconType} />
       <label className={styles.join(' ')} htmlFor={id}>
         {`${getLetterFromId(index)}) ${option}`}
       </label>

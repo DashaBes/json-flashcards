@@ -6,6 +6,10 @@
   user-select: none;
 }
 
+label.Button {
+  display: block;
+}
+
 .Link {
   border: none;
   background: none;
