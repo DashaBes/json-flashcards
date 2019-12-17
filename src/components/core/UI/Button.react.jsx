@@ -44,7 +44,7 @@ const Button = ({
         disabled={disabled}
       />
       <label style={style} className={styles} htmlFor={id} onClick={onClick}>
-        Upload
+        upload
       </label>
     </>
   ) : (

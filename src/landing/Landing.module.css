@@ -1,3 +1,13 @@
+.Landing {
+  background-image: url('../assets/quiz-bg.png');
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+}
+.Card {
+  background-color: transparent;
+}
 .icon_wrapper {
   display: flex;
   align-items: center;

@@ -47,12 +47,12 @@ const Landing = () => {
   return (
     <>
       {!quizData ? (
-        <VerticalLayout center="middle">
-          <Text type="title">JSON Flashcards</Text>
+        <VerticalLayout center="middle" className={classes.Landing}>
+          <Text bold="true" style={{color: '#8F2357'}} type="title">JSON Flashcards</Text>
           <Text type="body1">
             Create flashcards quickly from a formatted .json file.
           </Text>
-          <DragAndDropCard enabled={!isLoading}>
+          <DragAndDropCard enabled={!isLoading} className={classes.Card}>
             {!isLoading ? (
               <VerticalLayout center="middle">
                 <div className={classes.icon_wrapper}>
@@ -67,6 +67,7 @@ const Landing = () => {
                   type="file"
                   value="Upload"
                   onChange={handleUpload}
+                  style={{marginTop: '12px'}}
                 ></Button>
               </VerticalLayout>
             ) : (
@@ -76,7 +77,7 @@ const Landing = () => {
           <div className={classes.icon_wrapper}>
             <Icon size="1.5rem" type="help" />
             <Text type="body1">
-              <Button type="link" value="How do I format my .json?" />
+              <Button style={{color:'black'}}type="link" value="How do I format my .json?" />
             </Text>
           </div>
         </VerticalLayout>
