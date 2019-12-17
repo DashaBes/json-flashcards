@@ -31,13 +31,15 @@ const Quiz = ({data, finishQuiz}) => {
 
   return (
     <div className={classes.Quiz}>
-      <Header text="Quiz" />
+      <Header text="Quiz">
+        <Button type="link" value="quit" onClick={finishQuiz} className={classes.QuitButton}/>
+      </Header>
       <div className={classes.QuizPanel}>
         <Sidebar>
           <Text type="header2" bold>
             Stats
           </Text>
-          <Timer />
+          <Timer stop={answer ? true : false}/>
           <ProgressRing current={questionIndex + 1} total={data.length} />
           <QuizScore current={score} total={answered} />
         </Sidebar>

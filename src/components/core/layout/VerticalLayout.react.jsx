@@ -7,8 +7,8 @@ const centerClasses = {
   middle: classes['middle'],
 };
 
-const VerticalLayout = ({center, children, style}) => {
-  const classList = [classes.VerticalLayout];
+const VerticalLayout = ({center, children, style, className}) => {
+  const classList = [classes.VerticalLayout, className];
   if (center) {
     classList.push(centerClasses[center]);
   }
