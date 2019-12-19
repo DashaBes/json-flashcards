@@ -1,15 +1,8 @@
-import React from 'react'
-import VerticalLayout from '../layout/VerticalLayout.react'
+import React from 'react';
 import classes from './style/Sidebar.module.css';
 
 const Sidebar = ({children}) => {
-  return (
-    <div className={classes.Sidebar}>
-        <VerticalLayout center="horizontal">
-          {children}
-        </VerticalLayout>
-    </div>
-  )
-}
+  return <div className={classes.Sidebar}>{children}</div>;
+};
 
-export default Sidebar
+export default Sidebar;
