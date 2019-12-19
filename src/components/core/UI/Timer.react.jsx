@@ -21,9 +21,11 @@ const Timer = ({stop}) => {
   }, [stop]);
   return (
     <>
-      <Text type="header1" className={classes.Timer} align="center" bold>
-        {secondsToFormattedTime(currentSeconds)}
-      </Text>
+      <div className={classes.Timer}>
+        <Text type="header1" variant="primary" align="center" bold>
+          {secondsToFormattedTime(currentSeconds)}
+        </Text>
+      </div>
       <Text type="body1" align="center">
         Time elapsed
       </Text>
