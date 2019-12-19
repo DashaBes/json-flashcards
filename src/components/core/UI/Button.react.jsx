@@ -1,17 +1,7 @@
 import React from 'react';
 import classes from './style/Button.module.css';
 
-const Button = ({
-  id,
-  style,
-  onChange,
-  type,
-  value,
-  disabled,
-  hidden,
-  onClick,
-  className
-}) => {
+const Button = ({id, onChange, type, value, disabled, hidden, onClick}) => {
   let buttonType;
   switch (type) {
     case 'file':
@@ -23,7 +13,7 @@ const Button = ({
     default:
       buttonType = 'button';
   }
-  let classList = [className];
+  let classList = [];
   if (type === 'link') {
     classList.push(classes.Link);
   } else {
@@ -43,15 +33,14 @@ const Button = ({
         onChange={onChange}
         disabled={disabled}
       />
-      <label style={style} className={styles} htmlFor={id} onClick={onClick}>
+      <label className={styles} htmlFor={id} onClick={onClick}>
         upload
       </label>
     </>
   ) : (
     <input
-      style={style}
-      type={buttonType}
       className={styles}
+      type={buttonType}
       value={value}
       disabled={disabled}
       onClick={onClick}

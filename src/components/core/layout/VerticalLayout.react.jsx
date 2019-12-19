@@ -7,14 +7,14 @@ const centerClasses = {
   middle: classes['middle'],
 };
 
-const VerticalLayout = ({center, children, style, className}) => {
-  const classList = [classes.VerticalLayout, className];
+const VerticalLayout = ({center, children}) => {
+  const classList = [classes.VerticalLayout];
   if (center) {
     classList.push(centerClasses[center]);
   }
 
   return (
-    <div style={style} className={classList.join(' ')}>
+    <div className={classList.join(' ')}>
       {Children.map(children, child => {
         return <div className={classes.child}>{child}</div>;
       })}

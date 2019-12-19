@@ -34,12 +34,12 @@ const textProps = {
     tag: 'p',
   },
 };
-const Text = ({type, align, children, style, bold, className}) => {
+const Text = ({type, align, children, bold}) => {
   const textType = textProps[type] ? textProps[type] : textProps.default;
   return (
     <textType.tag
-      style={{textAlign: align, ...style}}
-      className={[classes[textType.className], bold && classes.bold, className].join(' ')}
+      style={{textAlign: align}}
+      className={[classes[textType.className], bold && classes.bold].join(' ')}
     >
       {children}
     </textType.tag>

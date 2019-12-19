@@ -7,8 +7,7 @@ import Button from '../components/core/UI/Button.react';
 import Quiz from '../quiz/Quiz.react';
 import Spinner from '../components/core/UI/Spinner.react';
 import {randomizeArray} from '../service/util/util';
-import Icon from '../components/core/UI/Icon.react';
-import classes from './Landing.module.css';
+import IconWrapper from '../components/core/UI/IconWrapper.react';
 
 const Landing = () => {
   const [isLoading, setLoading] = useState(false);
@@ -47,20 +46,21 @@ const Landing = () => {
   return (
     <>
       {!quizData ? (
-        <VerticalLayout center="middle" className={classes.Landing}>
-          <Text bold="true" style={{color: '#8F2357'}} type="title">JSON Flashcards</Text>
+        <VerticalLayout center="middle">
+          <Text bold="true" type="title">
+            JSON Flashcards
+          </Text>
           <Text type="body1">
             Create flashcards quickly from a formatted .json file.
           </Text>
-          <DragAndDropCard enabled={!isLoading} className={classes.Card}>
+          <DragAndDropCard enabled={!isLoading} transparent>
             {!isLoading ? (
               <VerticalLayout center="middle">
-                <div className={classes.icon_wrapper}>
-                  <Icon size={3} type="drag" />
+                <IconWrapper iconSize={3} iconType="drag">
                   <Text type="header2" align="center">
                     Drag and drop your .json file here
                   </Text>
-                </div>
+                </IconWrapper>
                 <Text type="body1">or</Text>
                 <Button
                   id="fileUpload"
@@ -73,12 +73,14 @@ const Landing = () => {
               <Spinner text="Loading your cards..." />
             )}
           </DragAndDropCard>
-          <div className={classes.icon_wrapper}>
-            <Icon size={1.5} type="help" />
+          <IconWrapper iconSize={1.5} iconType="help">
             <Text type="body1">
-              <Button style={{color:'black'}}type="link" value="How do I format my .json?" />
+              <Button
+                type="link"
+                value="How do I format my .json?"
+              />
             </Text>
-          </div>
+          </IconWrapper>
         </VerticalLayout>
       ) : (
         <>

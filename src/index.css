@@ -1,4 +1,5 @@
 body {
+  background-image: url('./assets/quiz-bg.png');
   margin: 0;
   font-family: "Fira Sans";
   -webkit-font-smoothing: antialiased;

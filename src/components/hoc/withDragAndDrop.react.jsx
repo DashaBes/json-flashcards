@@ -2,30 +2,27 @@ import React, {useState} from 'react';
 
 const withDragAndDrop = (WrappedComponent, dropAction) => {
   return props => {
-    const [style, setStyle] = useState({});
+    const [dashed, setDashed] = useState(false);
 
     const dragOverHandler = e => {
       e.preventDefault();
-      setStyle({
-        borderWidth: '3px',
-        borderStyle: 'dashed',
-      });
+      setDashed(true);
     };
 
     const dragLeaveHandler = e => {
       e.preventDefault();
-      setStyle({});
+      setDashed(false);
     };
 
     const wrappedDropAction = e => {
       e.preventDefault();
-      setStyle({});
+      setDashed(false);
       dropAction(e);
     };
 
     return (
       <WrappedComponent
-        style={style}
+        dashed={dashed}
         onDragOver={dragOverHandler}
         onDrop={wrappedDropAction}
         onDragLeave={dragLeaveHandler}
