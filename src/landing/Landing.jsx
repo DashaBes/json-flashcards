@@ -8,6 +8,7 @@ import Quiz from '../quiz/Quiz.react';
 import Spinner from '../components/core/UI/Spinner.react';
 import {randomizeArray} from '../service/util/util';
 import IconWrapper from '../components/core/UI/IconWrapper.react';
+import classes from './Landing.module.css';
 
 const Landing = () => {
   const [isLoading, setLoading] = useState(false);
@@ -74,12 +75,11 @@ const Landing = () => {
             )}
           </DragAndDropCard>
           <IconWrapper iconSize={1.5} iconType="help">
-            <Text type="body1">
-              <Button
-                type="link"
-                value="How do I format my .json?"
-              />
-            </Text>
+            <div className={classes.format_instructions}>
+              <Text type="body1" underline>
+                <Button type="link" value="How do I format my .json?" />
+              </Text>
+            </div>
           </IconWrapper>
         </VerticalLayout>
       ) : (

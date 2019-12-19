@@ -6,12 +6,15 @@ import VerticalLayout from '../layout/VerticalLayout.react';
 const Header = ({text, children}) => {
   return (
     <header className={classes.Header}>
-      <Text type="header1" className={classes.Text} align="center">
-        {text}
-      </Text>
-      <VerticalLayout className={classes.Header_Links} >
-        {children}
-      </VerticalLayout>
+      <div className={classes.Text}>
+        <Text type="header1" align="center">
+          {text}
+        </Text>
+      </div>
+
+      <div className={classes.Header_Links}>
+        <VerticalLayout>{children}</VerticalLayout>
+      </div>
     </header>
   );
 };

@@ -4,7 +4,7 @@ import classes from './style/Text.module.css';
 const textProps = {
   title: {
     tag: 'h1',
-    className: 'title'
+    className: 'title',
   },
   header1: {
     tag: 'h1',
@@ -34,12 +34,16 @@ const textProps = {
     tag: 'p',
   },
 };
-const Text = ({type, align, children, bold}) => {
+const Text = ({type, align, children, bold, underline}) => {
   const textType = textProps[type] ? textProps[type] : textProps.default;
   return (
     <textType.tag
       style={{textAlign: align}}
-      className={[classes[textType.className], bold && classes.bold].join(' ')}
+      className={[
+        classes[textType.className],
+        bold && classes.bold,
+        underline && classes.underline,
+      ].join(' ')}
     >
       {children}
     </textType.tag>

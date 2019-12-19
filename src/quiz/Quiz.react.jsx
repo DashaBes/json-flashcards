@@ -32,23 +32,27 @@ const Quiz = ({data, finishQuiz}) => {
   return (
     <div className={classes.Quiz}>
       <Header text="Quiz">
-        <Button type="link" value="quit" onClick={finishQuiz} className={classes.QuitButton}/>
+        <div className={classes.QuitButton}>
+          <Button type="link" value="quit" onClick={finishQuiz} />
+        </div>
       </Header>
       <div className={classes.QuizPanel}>
         <Sidebar>
           <Text type="header2" bold>
             Stats
           </Text>
-          <Timer stop={answer ? true : false}/>
+          <Timer stop={answer ? true : false} />
           <ProgressRing current={questionIndex + 1} total={data.length} />
           <QuizScore current={score} total={answered} />
         </Sidebar>
         <VerticalLayout center="middle">
           <Card rounded>
             <VerticalLayout>
-              <Text type="header2" className={classes.title} bold>
-                {question}
-              </Text>
+              <div className={classes.title}>
+                <Text type="header2" bold>
+                  {question}
+                </Text>
+              </div>
               <QuestionList
                 questionId={`question_${getStringHash(question)}`}
                 questions={options}
