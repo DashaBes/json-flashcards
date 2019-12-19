@@ -7,7 +7,7 @@ const Header = ({text, children}) => {
   return (
     <header className={classes.Header}>
       <div className={classes.Text}>
-        <Text type="header1" align="center">
+        <Text type="header1" align="center" bold>
           {text}
         </Text>
       </div>
