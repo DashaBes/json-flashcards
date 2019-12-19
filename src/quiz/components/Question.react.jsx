@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback, useMemo, useRef} from 'react';
 import classes from './style/Question.module.css';
 import {getLetterFromId} from '../../service/util/util';
 import Icon from '../../components/core/UI/Icon.react';
+import withKeyboardAccessibility from '../../components/hoc/withKeyboardAccessibility.react';
 
 const Question = ({
   index,
@@ -13,6 +14,7 @@ const Question = ({
 }) => {
   const id = `${questionId}_${index}`;
   const [selected, setSelected] = useState(false);
+  const questionRef = useRef(null);
   const styles = [classes.Question];
   const isCorrect = index === correct;
   let iconType;
@@ -29,6 +31,19 @@ const Question = ({
     }
   }
 
+  const clickHandler = useCallback(() => {
+    setSelected(true);
+    onAnswer(option, isCorrect);
+  }, [isCorrect, option, onAnswer]);
+
+  const AccessibleLabel = useMemo(
+    () =>
+      withKeyboardAccessibility(
+        props => <label {...props} />,
+        questionRef,
+      ),
+    [questionRef],
+  );
 
   return (
     <div className={classes.QuestionContainer}>
@@ -37,17 +52,15 @@ const Question = ({
         className={classes.hidden}
         type="radio"
         name={questionId}
-        onClick={() => {
-          setSelected(true);
-          onAnswer(option, isCorrect);
-        }}
+        onClick={clickHandler}
         value={option}
         disabled={showFeedback}
+        ref={questionRef}
       />
       <Icon size={1.5} type={iconType} />
-      <label className={styles.join(' ')} htmlFor={id}>
+      <AccessibleLabel className={styles.join(' ')} htmlFor={id}>
         {`${getLetterFromId(index)}) ${option}`}
-      </label>
+      </AccessibleLabel>
     </div>
   );
 };

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useRef, useMemo} from 'react';
 import classes from './style/Button.module.css';
+import withKeyboardAccessibility from '../../hoc/withKeyboardAccessibility.react';
 
 const Button = ({id, onChange, type, value, disabled, hidden, onClick}) => {
+  const buttonRef = useRef(null);
+
   let buttonType;
   switch (type) {
     case 'file':
@@ -23,6 +26,10 @@ const Button = ({id, onChange, type, value, disabled, hidden, onClick}) => {
     classList.push(classes.invisible);
   }
   const styles = classList.join(' ');
+  const AccessibleLabel = useMemo(
+    () => withKeyboardAccessibility(props => <label {...props} />, buttonRef),
+    [buttonRef],
+  );
   return buttonType === 'file' ? (
     <>
       <input
@@ -32,10 +39,11 @@ const Button = ({id, onChange, type, value, disabled, hidden, onClick}) => {
         accept={'.json'}
         onChange={onChange}
         disabled={disabled}
+        ref={buttonRef}
       />
-      <label className={styles} htmlFor={id} onClick={onClick}>
+      <AccessibleLabel className={styles} htmlFor={id}>
         upload
-      </label>
+      </AccessibleLabel>
     </>
   ) : (
     <input

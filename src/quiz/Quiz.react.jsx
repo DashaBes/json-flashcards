@@ -49,7 +49,6 @@ const Quiz = ({data, finishQuiz}) => {
               <QuizScore current={score} total={answered} />
             </VerticalLayout>
             <IconWrapper iconType="gear" iconSize={1.5}>
-              {/* <Text type="body1" variant="dark" bold>settings</Text> */}
               <div className={classes.SettingsButton}>
                 <Button type="link" value="settings"></Button>
               </div>
