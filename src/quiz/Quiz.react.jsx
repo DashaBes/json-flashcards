@@ -11,6 +11,7 @@ import classes from './Quiz.module.css';
 import Timer from '../components/core/UI/Timer.react';
 import ProgressRing from './components/QuizProgress.react';
 import QuizScore from './components/QuizScore.react';
+import IconWrapper from '../components/core/UI/IconWrapper.react';
 
 const Quiz = ({data, finishQuiz}) => {
   const [answer, setAnswer] = useState(null);
@@ -31,25 +32,35 @@ const Quiz = ({data, finishQuiz}) => {
 
   return (
     <div className={classes.Quiz}>
-      <Header text="Quiz">
+      <Header text="JSON flashcards">
         <div className={classes.QuitButton}>
           <Button type="link" value="quit" onClick={finishQuiz} />
         </div>
       </Header>
       <div className={classes.QuizPanel}>
         <Sidebar>
-          <Text type="header2" bold>
-            Stats
-          </Text>
-          <Timer stop={answer ? true : false} />
-          <ProgressRing current={questionIndex + 1} total={data.length} />
-          <QuizScore current={score} total={answered} />
+          <div className={classes.Sidebar_Layout}>
+            <VerticalLayout center="horizontal" spaceBetween={1.5}>
+              <Text type="header2" bold>
+                Stats
+              </Text>
+              <Timer stop={answer ? true : false} />
+              <ProgressRing current={questionIndex + 1} total={data.length} />
+              <QuizScore current={score} total={answered} />
+            </VerticalLayout>
+            <IconWrapper iconType="gear" iconSize={1.5}>
+              {/* <Text type="body1" variant="dark" bold>settings</Text> */}
+              <div className={classes.SettingsButton}>
+                <Button type="link" value="settings"></Button>
+              </div>
+            </IconWrapper>
+          </div>
         </Sidebar>
         <VerticalLayout center="middle">
           <Card rounded>
             <VerticalLayout>
               <div className={classes.title}>
-                <Text type="header2" bold>
+                <Text type="header2" variant="primary" bold>
                   {question}
                 </Text>
               </div>

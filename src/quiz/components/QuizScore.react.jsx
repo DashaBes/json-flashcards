@@ -7,7 +7,7 @@ const QuizScore = ({current, total}) => {
   return (
     <>
       <div className={classes.QuizScore}>
-        <Text type="header1" align="center" bold>
+        <Text type="header1" variant="primary" align="center" bold>
           {!Number.isNaN(percentage) ? `${percentage}%` : '____'}
         </Text>
       </div>

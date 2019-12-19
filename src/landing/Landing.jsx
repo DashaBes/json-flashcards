@@ -48,7 +48,7 @@ const Landing = () => {
     <>
       {!quizData ? (
         <VerticalLayout center="middle">
-          <Text bold="true" type="title">
+          <Text variant="primary" bold type="title">
             JSON Flashcards
           </Text>
           <Text type="body1">

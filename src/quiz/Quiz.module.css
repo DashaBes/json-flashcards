@@ -16,7 +16,6 @@
 }
 
 .QuitButton {
-  color: white;
   font-size: 1.875rem;
   text-decoration: none;
   width: 100%;
@@ -24,4 +23,17 @@
 
 .QuitButton > input:hover {
   text-decoration: underline;
+}
+
+.SettingsButton {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.Sidebar_Layout {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
