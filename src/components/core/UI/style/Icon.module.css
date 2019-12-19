@@ -4,19 +4,3 @@
   background-position: center;
   padding: 0 0.5em;
 }
-
-.Correct {
-  background-image: url('../../../../assets/checked.svg');
-}
-
-.Incorrect {
-  background-image: url('../../../../assets/cancel.svg');
-}
-
-.Help {
-  background-image: url('../../../../assets/question.svg');
-}
-
-.Drag {
-  background-image: url('../../../../assets/move.svg');
-}

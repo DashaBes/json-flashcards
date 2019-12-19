@@ -44,3 +44,18 @@ p {
 .underline {
   text-decoration: underline;
 }
+
+.primary {
+  color: var(--color-primary);
+}
+.secondary {
+  color: var(--color-secondary);
+}
+
+.light {
+  color: var(--color-light);
+}
+
+.dark {
+  color: var(--color-dark);
+}
