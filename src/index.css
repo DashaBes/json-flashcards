@@ -6,6 +6,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html{
+  --color-primary: #8F2357;
+  --color-secondary: #D6D948;
+  --color-dark: #000;
+  --color-light: #fff;
+}
+
 * {
   box-sizing: border-box;
 }

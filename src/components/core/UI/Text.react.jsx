@@ -34,13 +34,15 @@ const textProps = {
     tag: 'p',
   },
 };
-const Text = ({type, align, children, bold, underline}) => {
+
+const Text = ({type, variant, align, children, bold, underline}) => {
   const textType = textProps[type] ? textProps[type] : textProps.default;
   return (
     <textType.tag
       style={{textAlign: align}}
       className={[
         classes[textType.className],
+        variant && classes[variant],
         bold && classes.bold,
         underline && classes.underline,
       ].join(' ')}
