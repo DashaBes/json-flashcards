@@ -7,7 +7,7 @@ const centerClasses = {
   middle: classes['middle'],
 };
 
-const VerticalLayout = ({center, children}) => {
+const VerticalLayout = ({center, spaceBetween, children}) => {
   const classList = [classes.VerticalLayout];
   if (center) {
     classList.push(centerClasses[center]);
@@ -16,7 +16,14 @@ const VerticalLayout = ({center, children}) => {
   return (
     <div className={classList.join(' ')}>
       {Children.map(children, child => {
-        return <div className={classes.child}>{child}</div>;
+        return (
+          <div
+            style={{padding: `${spaceBetween ? spaceBetween : 0.75}em 0`}}
+            className={classes.child}
+          >
+            {child}
+          </div>
+        );
       })}
     </div>
   );
