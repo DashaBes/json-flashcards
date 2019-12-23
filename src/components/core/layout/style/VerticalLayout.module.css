@@ -13,7 +13,7 @@
 }
 
 .vcenter {
-  justify-content: center;
+  justify-content: safe center;
   height: 100%;
 }
 
@@ -23,6 +23,6 @@
 
 .middle {
   align-items: center;
-  justify-content: center;
+  justify-content: safe center;
   height: 100%;
 }
