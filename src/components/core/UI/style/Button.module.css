@@ -16,6 +16,7 @@ label.Button {
   color: inherit;
   font-size: inherit;
   font-weight: inherit;
+  font-family: Fira Sans;
   cursor: pointer;
   text-decoration: inherit;
   padding: 0;
