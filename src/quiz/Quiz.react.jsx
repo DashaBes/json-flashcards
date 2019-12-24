@@ -12,6 +12,7 @@ import Timer from '../components/core/UI/Timer.react';
 import ProgressRing from './components/QuizProgress.react';
 import QuizScore from './components/QuizScore.react';
 import IconWrapper from '../components/core/UI/IconWrapper.react';
+import QuizEnd from './QuizEnd.react';
 
 const Quiz = ({data, finishQuiz}) => {
   const [answer, setAnswer] = useState(null);
