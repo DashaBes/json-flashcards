@@ -74,7 +74,6 @@ const Landing = () => {
               <Spinner text="Loading your cards..." />
             )}
           </DragAndDropCard>
-          <div className={classes.format_link}>
           <IconWrapper iconSize={1.5} iconType="help">
             <div className={classes.format_instructions}>
               <Text type="body2" underline>
@@ -82,7 +81,6 @@ const Landing = () => {
               </Text>
             </div>
           </IconWrapper>
-          </div>
         </VerticalLayout>
       ) : (
         <>
