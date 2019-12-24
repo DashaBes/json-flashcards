@@ -2,26 +2,23 @@ import React, {useRef, useMemo} from 'react';
 import classes from './style/Button.module.css';
 import withKeyboardAccessibility from '../../hoc/withKeyboardAccessibility.react';
 
+const buttonTypes = new Set(['file', 'submit', 'button']);
+const buttonStyles = new Map(
+  [
+    ['link', classes.Link],
+    ['card', classes.Card]
+  ]
+)
+
 const Button = ({id, onChange, type, value, disabled, hidden, onClick}) => {
   const buttonRef = useRef(null);
+  const baseStyle = buttonStyles.has(type) ? buttonStyles.get(type) : classes.Button;
+  const classList = [baseStyle];
 
-  let buttonType;
-  switch (type) {
-    case 'file':
-      buttonType = 'file';
-      break;
-    case 'submit':
-      buttonType = 'submit';
-      break;
-    default:
-      buttonType = 'button';
+  if (!buttonTypes.has(type)) {
+    type = 'button';
   }
-  let classList = [];
-  if (type === 'link') {
-    classList.push(classes.Link);
-  } else {
-    classList.push(classes.Button);
-  }
+
   if (hidden) {
     classList.push(classes.invisible);
   }
@@ -30,7 +27,7 @@ const Button = ({id, onChange, type, value, disabled, hidden, onClick}) => {
     () => withKeyboardAccessibility(props => <label {...props} />, buttonRef),
     [buttonRef],
   );
-  return buttonType === 'file' ? (
+  return type === 'file' ? (
     <>
       <input
         type="file"
@@ -48,7 +45,7 @@ const Button = ({id, onChange, type, value, disabled, hidden, onClick}) => {
   ) : (
     <input
       className={styles}
-      type={buttonType}
+      type={type}
       value={value}
       disabled={disabled}
       onClick={onClick}

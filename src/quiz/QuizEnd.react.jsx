@@ -17,21 +17,9 @@ const QuizEnd = () => {
           </div>
           <div>
             <HorizontalLayout spaceBetween='1'>
-              <Card small>
-                <VerticalLayout center='middle'>
-                  <Text>retry quiz</Text>
-                </VerticalLayout>
-              </Card>
-              <Card small>
-                <VerticalLayout center='middle'>
-                  <Text>retry incorrect questions only</Text>
-                </VerticalLayout>
-              </Card>
-              <Card small>
-                <VerticalLayout center='middle'>
-                  <Text>home</Text>
-                </VerticalLayout>
-              </Card>
+              <Button type='card' value="retry quiz"/>
+              <Button type='card' value="retry incorrect questions only" />
+              <Button type='card' value="home"/>
             </HorizontalLayout>
           </div>
         </VerticalLayout>

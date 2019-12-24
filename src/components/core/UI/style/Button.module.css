@@ -35,3 +35,21 @@ label.Button {
 .invisible {
   visibility: hidden;
 }
+
+.Card {
+  background: #EFEFEF;
+  border: none;
+  color: var(--color-dark);
+  cursor: pointer;
+  width: 9rem;
+  height: 5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  white-space: normal;
+} 
+.Card:hover {
+  background-color: var(--color-primary);
+  border-color: var(--transparent);
+  color: var(--color-light);
+}
