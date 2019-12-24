@@ -1,5 +1,5 @@
 import murmur from 'murmurhash-js';
-const seed = Date.now();
+const localSeed = Date.now();
 
 export function* letterGenerator() {
   let letter = 'a';
@@ -35,7 +35,10 @@ export const randomizeArray = arr => {
   return randomArray;
 };
 
-export const getStringHash = str => {
+export const getStringHash = (str, seed) => {
   // MurmerHash3 algorithm
+  if (!seed) {
+    seed = localSeed;
+  }
   return murmur.murmur3(str, seed);
 }

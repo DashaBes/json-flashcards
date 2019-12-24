@@ -6,7 +6,7 @@ import HorizontalLayout from '../components/core/layout/HorizontalLayout.react';
 import Text from '../components/core/UI/Text.react';
 import classes from './QuizEnd.module.css';
 
-const QuizEnd = () => {
+const QuizEnd = ({returnHome, restartQuiz}) => {
   return (
       <Card rounded>
         <VerticalLayout center="horizontal">
@@ -17,9 +17,9 @@ const QuizEnd = () => {
           </div>
           <div>
             <HorizontalLayout spaceBetween='1'>
-              <Button type='card' value="retry quiz"/>
+              <Button type='card' value="retry quiz" onClick={restartQuiz}/>
               <Button type='card' value="retry incorrect questions only" />
-              <Button type='card' value="home"/>
+              <Button type='card' value="home" onClick={returnHome}/>
             </HorizontalLayout>
           </div>
         </VerticalLayout>
