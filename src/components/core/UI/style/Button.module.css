@@ -6,6 +6,12 @@
   user-select: none;
 }
 
+.Button:hover {
+  background-color: var(--color-primary);
+  border-color: var(--transparent);
+  color: var(--color-light);
+}
+
 label.Button {
   display: block;
 }
