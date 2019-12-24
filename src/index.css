@@ -11,6 +11,7 @@ html{
   --color-secondary: #D6D948;
   --color-dark: #000;
   --color-light: #fff;
+  --transparent: rgba(255, 255, 255, 0);
 }
 
 * {
