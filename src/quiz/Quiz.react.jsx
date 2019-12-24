@@ -48,11 +48,13 @@ const Quiz = ({data, finishQuiz}) => {
               <ProgressRing current={questionIndex + 1} total={data.length} />
               <QuizScore current={score} total={answered} />
             </VerticalLayout>
-            <IconWrapper iconType="gear" iconSize={1.5}>
-              <div className={classes.SettingsButton}>
-                <Button type="link" value="settings"></Button>
-              </div>
-            </IconWrapper>
+            <div className={classes.SettingsButton}>
+              <IconWrapper iconType="gear" iconSize={1.5}>
+                <div className={classes.SettingsButtonText}>
+                  <Button type="link" value="settings"></Button>
+                </div>
+              </IconWrapper>
+            </div>
           </div>
         </Sidebar>
         <VerticalLayout center="middle">

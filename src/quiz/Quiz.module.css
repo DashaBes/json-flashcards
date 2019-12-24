@@ -25,9 +25,13 @@
   text-decoration: underline;
 }
 
-.SettingsButton {
+.SettingsButtonText {
   font-size: 1.25rem;
   font-weight: 600;
+}
+
+.SettingsButton {
+  padding-top: 1.5em;
 }
 
 .Sidebar_Layout {
