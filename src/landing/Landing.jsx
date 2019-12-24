@@ -74,13 +74,15 @@ const Landing = () => {
               <Spinner text="Loading your cards..." />
             )}
           </DragAndDropCard>
+          <div className={classes.format_link}>
           <IconWrapper iconSize={1.5} iconType="help">
             <div className={classes.format_instructions}>
-              <Text type="body1" underline>
+              <Text type="body2" underline>
                 <Button type="link" value="How do I format my .json?" />
               </Text>
             </div>
           </IconWrapper>
+          </div>
         </VerticalLayout>
       ) : (
         <>
