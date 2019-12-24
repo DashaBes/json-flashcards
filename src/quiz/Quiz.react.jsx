@@ -16,6 +16,7 @@ import QuizEnd from './QuizEnd.react';
 
 const Quiz = ({data, finishQuiz}) => {
   const [answer, setAnswer] = useState(null);
+  const [quizEnd, setQuizEnd] = useState(true);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [answered, setAnswered] = useState(0);
@@ -59,7 +60,7 @@ const Quiz = ({data, finishQuiz}) => {
           </div>
         </Sidebar>
         <VerticalLayout center="middle">
-          <Card rounded>
+          {!quizEnd ? <Card rounded>
             <VerticalLayout>
               <div className={classes.title}>
                 <Text type="header2" variant="primary" bold>
@@ -78,7 +79,7 @@ const Quiz = ({data, finishQuiz}) => {
                 }}
               />
             </VerticalLayout>
-          </Card>
+          </Card> : <QuizEnd/>}
           {questionIndex + 1 !== data.length ? (
             <Button
               hidden={!answer ? true : false}
