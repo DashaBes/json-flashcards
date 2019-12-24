@@ -43,6 +43,7 @@ const Landing = () => {
   };
   const DragAndDropCard = useMemo(() => withDragAndDrop(Card, handleDrop), []);
   const quizEndHandler = () => setQuizData(null);
+  const quizRestartHandler = () => setQuizData(currQuizData => randomizeArray(currQuizData));
 
   return (
     <>
@@ -84,7 +85,7 @@ const Landing = () => {
         </VerticalLayout>
       ) : (
         <>
-          {!isLoading && <Quiz data={quizData} finishQuiz={quizEndHandler} />}
+          {!isLoading && <Quiz data={quizData} finishQuiz={quizEndHandler} restartQuiz={quizRestartHandler}/>}
         </>
       )}
     </>
