@@ -4,4 +4,5 @@
   margin: 0;
   padding: 2rem;
   width: 12.5rem;
+  overflow: scroll;
 }
