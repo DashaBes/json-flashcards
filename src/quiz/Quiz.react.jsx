@@ -14,25 +14,40 @@ import QuizScore from './components/QuizScore.react';
 import IconWrapper from '../components/core/UI/IconWrapper.react';
 import QuizEnd from './QuizEnd.react';
 
-const getTimerHash = () => getStringHash('timer', Date.now());
+const getTimerHash = () => `timer_${getStringHash('timer', Date.now())}`;
 
-const Quiz = ({data, finishQuiz, restartQuiz}) => {
+const Quiz = ({data, setData, finishQuiz, restartQuiz}) => {
   const [timerKey, setTimerKey] = useState(getTimerHash());
   const [answer, setAnswer] = useState(null);
   const [quizEnd, setQuizEnd] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [answered, setAnswered] = useState(0);
+  const [incorrectAnswers, setIncorrectAnswers] = useState([]);
   const {question, options, correct} = data[questionIndex];
 
-  const answerHandler = correct => {
-    if (correct) {
+  const answerHandler = isCorrect => {
+    if (isCorrect) {
       // Correct answer logic
       setScore(prevScore => prevScore + 1);
     } else {
-      // Incorrect answer logic
+      setIncorrectAnswers(incorrect => [
+        ...incorrect,
+        {question, options, correct},
+      ]);
     }
     setAnswered(prevAnswered => prevAnswered + 1);
+  };
+
+  const quizRestartHandler = () => {
+    setQuizEnd(false);
+    setIncorrectAnswers([]);
+    setAnswer(null);
+    setQuestionIndex(0);
+    setScore(0);
+    setAnswered(0);
+    resetTimer();
+    restartQuiz();
   };
 
   const resetTimer = () => {
@@ -53,10 +68,7 @@ const Quiz = ({data, finishQuiz, restartQuiz}) => {
               <Text type="header2" bold>
                 Stats
               </Text>
-              <Timer
-                key={`timer_${timerKey}`}
-                stop={answer || quizEnd ? true : false}
-              />
+              <Timer key={timerKey} stop={answer || quizEnd ? true : false} />
               <ProgressRing current={questionIndex + 1} total={data.length} />
               <QuizScore current={score} total={answered} />
             </VerticalLayout>
@@ -72,23 +84,25 @@ const Quiz = ({data, finishQuiz, restartQuiz}) => {
         <VerticalLayout center="middle">
           {!quizEnd ? (
             <Card rounded>
-              <VerticalLayout>
-                <div className={classes.title}>
-                  <Text type="header2" variant="primary" bold>
-                    {question}
-                  </Text>
-                </div>
-                <QuestionList
-                  questionId={`question_${getStringHash(question)}`}
-                  questions={options}
-                  correct={correct}
-                  shuffle={true}
-                  showFeedback={answer ? true : false}
-                  onAnswer={(option, isCorrect) => {
-                    setAnswer(option);
-                    answerHandler(isCorrect);
-                  }}
-                />
+              <div className={classes.QuestionWrapper}>
+                <VerticalLayout>
+                  <div className={classes.title}>
+                    <Text type="header2" variant="primary" bold>
+                      {question}
+                    </Text>
+                  </div>
+                  <QuestionList
+                    questionId={`question_${getStringHash(question)}`}
+                    questions={options}
+                    correct={correct}
+                    shuffle={true}
+                    showFeedback={answer ? true : false}
+                    onAnswer={(option, isCorrect) => {
+                      setAnswer(option);
+                      answerHandler(isCorrect);
+                    }}
+                  />
+                </VerticalLayout>
                 <div className={classes.TransitionButton}>
                   {questionIndex + 1 !== data.length ? (
                     <Button
@@ -109,20 +123,17 @@ const Quiz = ({data, finishQuiz, restartQuiz}) => {
                     ></Button>
                   )}
                 </div>
-              </VerticalLayout>
+              </div>
             </Card>
           ) : (
             <QuizEnd
               returnHome={finishQuiz}
-              restartQuiz={() => {
-                setQuizEnd(false);
-                setAnswer(null);
-                setQuestionIndex(0);
-                setScore(0);
-                setAnswered(0);
-                resetTimer();
-                restartQuiz();
+              restartQuiz={quizRestartHandler}
+              restartQuizIncorrect={() => {
+                setData(incorrectAnswers);
+                quizRestartHandler();
               }}
+              hasIncorrectAnswers={incorrectAnswers.length > 0}
             />
           )}
         </VerticalLayout>

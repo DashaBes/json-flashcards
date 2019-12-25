@@ -28,6 +28,10 @@ const Landing = () => {
     }
   };
 
+  const setNewQuizData = data => {
+    setQuizData(randomizeArray(data));
+  }
+
   const handleUpload = async e => {
     if (e.target.files) {
       setLoading(true);
@@ -43,7 +47,8 @@ const Landing = () => {
   };
   const DragAndDropCard = useMemo(() => withDragAndDrop(Card, handleDrop), []);
   const quizEndHandler = () => setQuizData(null);
-  const quizRestartHandler = () => setQuizData(currQuizData => randomizeArray(currQuizData));
+  const quizRestartHandler = () =>
+    setQuizData(currQuizData => randomizeArray(currQuizData));
 
   return (
     <>
@@ -85,7 +90,14 @@ const Landing = () => {
         </VerticalLayout>
       ) : (
         <>
-          {!isLoading && <Quiz data={quizData} finishQuiz={quizEndHandler} restartQuiz={quizRestartHandler}/>}
+          {!isLoading && (
+            <Quiz
+              data={quizData}
+              setData={setNewQuizData}
+              finishQuiz={quizEndHandler}
+              restartQuiz={quizRestartHandler}
+            />
+          )}
         </>
       )}
     </>

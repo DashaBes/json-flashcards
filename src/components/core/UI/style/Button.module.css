@@ -6,7 +6,8 @@
   user-select: none;
 }
 
-.Button:hover {
+.Button:hover,
+.Button:focus {
   background-color: var(--color-primary);
   border-color: var(--transparent);
   color: var(--color-light);

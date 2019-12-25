@@ -44,4 +44,12 @@
 
 .TransitionButton {
   text-align: center;
+  padding-bottom: 1em;
+}
+
+.QuestionWrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
 }
