@@ -38,6 +38,8 @@ label.Button {
 }
 
 .Card {
+  font-size: 1rem;
+  font-family: 'Fira Sans';
   background: #EFEFEF;
   border: none;
   color: var(--color-dark);
