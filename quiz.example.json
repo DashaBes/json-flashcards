@@ -1,19 +1,20 @@
 [
   {
-    "question": "How does a birb differ from a borb?",
+    "question": "In Java, how many bytes is a long?",
     "options": [
-      "A borb is a round birb",
-      "Borbs aren't real",
-      "Borb is just a really awful spelling of bird"
+      "4 bytes",
+      "8 bytes",
+      "16 bytes",
+      "32 bytes",
+      "64 bytes"
     ],
-    "correct": 0
+    "correct": 1
   },
   {
-    "question": "How many borbs is too many borbs?",
+    "question": "True or False: A string is a primitive datatype in Java.",
     "options": [
-      "What is a borb?",
-      "No such thing as too many borbs!",
-      "Any more than 10 is probably too much..."
+      "True",
+      "False"
     ],
     "correct": 1
   }
