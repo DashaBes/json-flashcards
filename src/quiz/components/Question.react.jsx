@@ -37,11 +37,7 @@ const Question = ({
   }, [isCorrect, option, onAnswer]);
 
   const AccessibleLabel = useMemo(
-    () =>
-      withKeyboardAccessibility(
-        props => <label {...props} />,
-        questionRef,
-      ),
+    () => withKeyboardAccessibility(props => <label {...props} />, questionRef),
     [questionRef],
   );
 
@@ -57,7 +53,9 @@ const Question = ({
         disabled={showFeedback}
         ref={questionRef}
       />
-      <Icon size={1.5} type={iconType} />
+      <div>
+        <Icon size={1.5} type={iconType} />
+      </div>
       <AccessibleLabel className={styles.join(' ')} htmlFor={id}>
         {`${getLetterFromId(index)}) ${option}`}
       </AccessibleLabel>

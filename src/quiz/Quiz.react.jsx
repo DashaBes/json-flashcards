@@ -85,24 +85,22 @@ const Quiz = ({data, setData, finishQuiz, restartQuiz}) => {
           {!quizEnd ? (
             <Card rounded>
               <div className={classes.QuestionWrapper}>
-                <VerticalLayout>
-                  <div className={classes.title}>
-                    <Text type="header2" variant="primary" bold>
-                      {question}
-                    </Text>
-                  </div>
-                  <QuestionList
-                    questionId={`question_${getStringHash(question)}`}
-                    questions={options}
-                    correct={correct}
-                    shuffle={true}
-                    showFeedback={answer ? true : false}
-                    onAnswer={(option, isCorrect) => {
-                      setAnswer(option);
-                      answerHandler(isCorrect);
-                    }}
-                  />
-                </VerticalLayout>
+                <div className={classes.title}>
+                  <Text type="header2" variant="primary" bold>
+                    {question}
+                  </Text>
+                </div>
+                <QuestionList
+                  questionId={`question_${getStringHash(question)}`}
+                  questions={options}
+                  correct={correct}
+                  shuffle={true}
+                  showFeedback={answer ? true : false}
+                  onAnswer={(option, isCorrect) => {
+                    setAnswer(option);
+                    answerHandler(isCorrect);
+                  }}
+                />
                 <div className={classes.TransitionButton}>
                   {questionIndex + 1 !== data.length ? (
                     <Button
