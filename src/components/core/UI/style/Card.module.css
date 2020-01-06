@@ -24,5 +24,9 @@
 }
 
 .instructions {
+  width: 40rem;
   height: 40rem;
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 2.5px 5px 15px rgba(0, 0, 0, 0.25);
 }
