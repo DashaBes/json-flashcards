@@ -22,3 +22,7 @@
 .transparent {
   background: transparent;
 }
+
+.instructions {
+  height: 40rem;
+}

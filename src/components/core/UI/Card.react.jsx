@@ -7,7 +7,7 @@ const Card = ({
   onDrop,
   onDragLeave,
   rounded,
-  small,
+  instructions,
   transparent,
   dashed,
 }) => {
@@ -16,7 +16,7 @@ const Card = ({
       className={[
         classes.Card,
         rounded && classes.rounded,
-        small && classes.small,
+        instructions && classes.instructions,
         transparent && classes.transparent,
         dashed && classes.dashed
       ].join(' ')}
