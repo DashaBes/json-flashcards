@@ -62,7 +62,7 @@ const Landing = () => {
         <>
           {isViewingInstructions && (
             <Modal hideModal={handleHideModal}>
-              <Card rounded>
+              <Card instructions>
                 <Text type="heading1"></Text>
               </Card>
             </Modal>
