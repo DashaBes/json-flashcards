@@ -8,6 +8,7 @@ const Card = ({
   onDragLeave,
   rounded,
   instructions,
+  credits,
   transparent,
   dashed,
 }) => {
@@ -17,6 +18,7 @@ const Card = ({
         classes.Card,
         rounded && classes.rounded,
         instructions && classes.instructions,
+        credits && classes.credits,
         transparent && classes.transparent,
         dashed && classes.dashed
       ].join(' ')}

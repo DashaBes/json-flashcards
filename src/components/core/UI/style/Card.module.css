@@ -31,3 +31,12 @@
   box-shadow: 2.5px 5px 15px rgba(0, 0, 0, 0.25);
   padding: 1em 1em 1em 1.75em;
 }
+
+.credits {
+  width: 35rem;
+  height: 55vh;
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 2.5px 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 1em 1em 1em 1.75em;
+}
