@@ -11,7 +11,7 @@ import classes from './Quiz.module.css';
 import Timer from '../components/core/UI/Timer.react';
 import ProgressRing from './components/QuizProgress.react';
 import QuizScore from './components/QuizScore.react';
-import IconWrapper from '../components/core/UI/IconWrapper.react';
+// import IconWrapper from '../components/core/UI/IconWrapper.react';
 import QuizEnd from './QuizEnd.react';
 
 const getTimerHash = () => `timer_${getStringHash('timer', Date.now())}`;
@@ -72,13 +72,13 @@ const Quiz = ({data, setData, finishQuiz, restartQuiz}) => {
               <ProgressRing current={questionIndex + 1} total={data.length} />
               <QuizScore current={score} total={answered} />
             </VerticalLayout>
-            <div className={classes.SettingsButton}>
+            {/* <div className={classes.SettingsButton}>
               <IconWrapper iconType="gear" iconSize={1.5}>
                 <div className={classes.SettingsButtonText}>
                   <Button type="link" value="settings"></Button>
                 </div>
               </IconWrapper>
-            </div>
+            </div> */}
           </div>
         </Sidebar>
         <VerticalLayout center="middle">
