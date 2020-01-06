@@ -24,9 +24,10 @@
 }
 
 .instructions {
-  width: 40rem;
-  height: 40rem;
+  width: 45rem;
+  height: 80vh;
   border: none;
   border-radius: 1.5rem;
   box-shadow: 2.5px 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 1em 1em 1em 1.75em;
 }

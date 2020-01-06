@@ -4,3 +4,9 @@
 .format_link {
   margin-top: 2rem;
 }
+
+.Instructions {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

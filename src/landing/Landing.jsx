@@ -10,6 +10,29 @@ import {randomizeArray} from '../service/util/util';
 import IconWrapper from '../components/core/UI/IconWrapper.react';
 import classes from './Landing.module.css';
 import Modal from '../components/core/UI/Modal.react';
+import Code from '../components/core/UI/Code.react';
+
+const instructionsText = `[
+  {
+    "question": "In Java, how many bytes is a long?",
+    "options": [
+      "4 bytes",
+      "8 bytes",
+      "16 bytes",
+      "32 bytes",
+      "64 bytes",
+    ],
+    "correct": 1
+  },
+  {
+    "question": "True or False: A string is a primitive datatype in Java.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 1
+  }
+]`;
 
 const Landing = () => {
   const [isLoading, setLoading] = useState(false);
@@ -63,22 +86,25 @@ const Landing = () => {
           {isViewingInstructions && (
             <Modal hideModal={handleHideModal}>
               <Card instructions>
-                <VerticalLayout center="middle">
-                  <Text type="body1"> In order to use this tool, your .json quiz file must be formatted in a specific way.
-                  </Text>
-                  <Text type='body1'>
-                    Format your questions and multiple choice answers as shown in the example below, specifying the correct answer by its index in the options array.
-                  </Text>
-
-                    
-
+                <div className={classes.Instructions}>
+                  <VerticalLayout center="middle">
+                    <Text type="body1">
+                      In order to use this tool, your .json quiz file must be
+                      formatted in a specific way.
+                    </Text>
+                    <Text type="body1">
+                      Format your questions and multiple choice answers as shown
+                      in the example below, specifying the correct answer by its
+                      index in the options array.
+                    </Text>
+                    <Code>{instructionsText}</Code>
                     <Button
                       type="button"
                       value="got it"
                       onClick={handleHideModal}
                     ></Button>
-                  
-                </VerticalLayout>
+                  </VerticalLayout>
+                </div>
               </Card>
             </Modal>
           )}

@@ -1,4 +1,4 @@
 .QuestionList {
-  overflow-y: scroll;
+  overflow-y: auto;
   word-break: break-all;
 }
