@@ -63,7 +63,22 @@ const Landing = () => {
           {isViewingInstructions && (
             <Modal hideModal={handleHideModal}>
               <Card instructions>
-                <Text type="heading1"></Text>
+                <VerticalLayout center="middle">
+                  <Text type="body1"> In order to use this tool, your .json quiz file must be formatted in a specific way.
+                  </Text>
+                  <Text type='body1'>
+                    Format your questions and multiple choice answers as shown in the example below, specifying the correct answer by its index in the options array.
+                  </Text>
+
+                    
+
+                    <Button
+                      type="button"
+                      value="got it"
+                      onClick={handleHideModal}
+                    ></Button>
+                  
+                </VerticalLayout>
               </Card>
             </Modal>
           )}
