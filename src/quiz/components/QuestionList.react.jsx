@@ -2,6 +2,7 @@ import React, {useMemo} from 'react';
 import Question from './Question.react';
 import {randomizeArray, getStringHash} from '../../service/util/util';
 import VerticalLayout from '../../components/core/layout/VerticalLayout.react';
+import classes from './style/QuestionList.module.css';
 
 const QuestionList = ({
   questionId,
@@ -34,7 +35,11 @@ const QuestionList = ({
       />
     );
   });
-  return <VerticalLayout>{questionsComponents}</VerticalLayout>;
+  return (
+    <div className={classes.QuestionList}>
+      <VerticalLayout>{questionsComponents}</VerticalLayout>
+    </div>
+  );
 };
 
 export default QuestionList;

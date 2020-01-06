@@ -45,11 +45,12 @@
 .TransitionButton {
   text-align: center;
   padding-bottom: 1em;
+  margin-top: auto;
 }
 
 .QuestionWrapper {
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }

@@ -1,6 +1,6 @@
 .QuestionContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .Question {
